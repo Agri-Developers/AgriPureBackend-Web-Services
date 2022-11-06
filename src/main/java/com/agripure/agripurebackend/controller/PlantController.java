@@ -14,9 +14,10 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/plants")
-@Api(tags = "Plant", value = "Web Service RESTful - Plants")
+@Api(tags = "Plants", value = "Web Service RESTful - Plants")
 public class PlantController {
 
     private final IPlantService plantService;
