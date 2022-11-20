@@ -44,4 +44,9 @@ public class PlantServiceImpl implements IPlantService {
     public Plant findByName(String name) throws Exception {
         return plantRepository.findByName(name);
     }
+
+    @Override
+    public List<Plant> ListByUserId(Long userId) throws Exception {
+        return plantRepository.ListByUserId(userId);
+    }
 }

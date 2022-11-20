@@ -1,6 +1,5 @@
 package com.agripure.agripurebackend.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,8 +20,6 @@ public class Plant implements Serializable {
     private String name;
     @Column(name="image", nullable = false)
     private String image;
-    @Column(name="saved", nullable = false)
-    private Boolean saved;
     @Column(name="scientifist_name", nullable = false, length = 100)
     private String scientifist_name;
     @Column(name="variety", nullable = false, length = 100)

@@ -36,25 +36,25 @@ public class PlantControllerTest {
     void setUp(){
         plantList = new ArrayList<>();
         plantList.add(new Plant(1L, "Tomato", "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Bright_red_tomato_and_cross_section02.jpg/640px-Bright_red_tomato_and_cross_section02.jpg",
-                false, "Brassica oleracea var. botrytis", "Brassica oleracea",
+                "Brassica oleracea var. botrytis", "Brassica oleracea",
                 "information about the land type", 5.5F, "information about distance between plants",
                 "40-60 cm", "information about ideal depth", "0.5-1.5 m",
                 "Information about the weather conditions", "15°-18° C",
                 "information about fertilization and fumigation", 2,3));
         plantList.add(new Plant(2L, "Cualiflower", "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Bright_red_tomato_and_cross_section02.jpg/640px-Bright_red_tomato_and_cross_section02.jpg",
-                false, "Brassica oleracea var. botrytis", "Brassica oleracea",
+                "Brassica oleracea var. botrytis", "Brassica oleracea",
                 "information about the land type", 5.5F, "information about distance between plants",
                 "40-60 cm", "information about ideal depth", "0.5-1.5 m",
                 "Information about the weather conditions", "15°-18° C",
                 "information about fertilization and fumigation", 2,1));
         plantList.add(new Plant(3L, "Potatoe", "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Bright_red_tomato_and_cross_section02.jpg/640px-Bright_red_tomato_and_cross_section02.jpg",
-                true, "Brassica oleracea var. botrytis", "Brassica oleracea",
+                "Brassica oleracea var. botrytis", "Brassica oleracea",
                 "information about the land type", 5.5F, "information about distance between plants",
                 "40-60 cm", "information about ideal depth", "0.5-1.5 m",
                 "Information about the weather conditions", "15°-18° C",
                 "information about fertilization and fumigation", 2,1));
         plantList.add(new Plant(4L, "Lemon", "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Bright_red_tomato_and_cross_section02.jpg/640px-Bright_red_tomato_and_cross_section02.jpg",
-                false, "Brassica oleracea var. botrytis", "Brassica oleracea",
+                 "Brassica oleracea var. botrytis", "Brassica oleracea",
                 "information about the land type", 4F, "information about distance between plants",
                 "40-60 cm", "information about ideal depth", "0.5-1.5 m",
                 "Information about the weather conditions", "15°-18° C",
@@ -70,7 +70,7 @@ public class PlantControllerTest {
     @Test
     void insertPlantTest() throws Exception{
         Plant plant = new Plant(1L, "Tomato", "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Bright_red_tomato_and_cross_section02.jpg/640px-Bright_red_tomato_and_cross_section02.jpg",
-                false, "Brassica oleracea var. botrytis", "Brassica oleracea",
+                "Brassica oleracea var. botrytis", "Brassica oleracea",
                 "information about the land type", 5.5F, "information about distance between plants",
                 "40-60 cm", "information about ideal depth", "0.5-1.5 m",
                 "Information about the weather conditions", "15°-18° C",
@@ -85,7 +85,7 @@ public class PlantControllerTest {
     void updatePlantTest() throws Exception{
         Long id = 1L;
         Plant plant = new Plant(1L, "Tomato", "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Bright_red_tomato_and_cross_section02.jpg/640px-Bright_red_tomato_and_cross_section02.jpg",
-                false, "Brassica oleracea var. botrytis", "Brassica oleracea",
+                "Brassica oleracea var. botrytis", "Brassica oleracea",
                 "information about the land type", 5.5F, "information about distance between plants",
                 "40-60 cm", "information about ideal depth", "0.5-1.5 m",
                 "Information about the weather conditions", "15°-18° C",
@@ -99,8 +99,7 @@ public class PlantControllerTest {
     @Test
     void deletePlantTest() throws Exception{
         Long id = 1L;
-        Plant plant = new Plant(1L, "Tomato", "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Bright_red_tomato_and_cross_section02.jpg/640px-Bright_red_tomato_and_cross_section02.jpg",
-                false, "Brassica oleracea var. botrytis", "Brassica oleracea",
+        Plant plant = new Plant(1L, "Tomato", "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Bright_red_tomato_and_cross_section02.jpg/640px-Bright_red_tomato_and_cross_section02.jpg", "Brassica oleracea var. botrytis", "Brassica oleracea",
                 "information about the land type", 5.5F, "information about distance between plants",
                 "40-60 cm", "information about ideal depth", "0.5-1.5 m",
                 "Information about the weather conditions", "15°-18° C",

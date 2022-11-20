@@ -8,14 +8,15 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.BDDMockito.given;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
@@ -30,7 +31,7 @@ public class PlantServiceImplTest {
     @Test
     public void saveTest(){
         Plant plant = new Plant(1L, "Tomato", "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Bright_red_tomato_and_cross_section02.jpg/640px-Bright_red_tomato_and_cross_section02.jpg",
-                false, "Brassica oleracea var. botrytis", "Brassica oleracea",
+                "Brassica oleracea var. botrytis", "Brassica oleracea",
                 "information about the land type", 5.5F, "information about distance between plants",
                 "40-60 cm", "information about ideal depth", "0.5-1.5 m",
                 "Information about the weather conditions", "15°-18° C",
@@ -59,25 +60,25 @@ public class PlantServiceImplTest {
     public void getAllTest() throws Exception{
         List<Plant> list = new ArrayList<>();
         list.add(new Plant(1L, "Tomato", "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Bright_red_tomato_and_cross_section02.jpg/640px-Bright_red_tomato_and_cross_section02.jpg",
-                false, "Brassica oleracea var. botrytis", "Brassica oleracea",
+                "Brassica oleracea var. botrytis", "Brassica oleracea",
                 "information about the land type", 5.5F, "information about distance between plants",
                 "40-60 cm", "information about ideal depth", "0.5-1.5 m",
                 "Information about the weather conditions", "15°-18° C",
                 "information about fertilization and fumigation", 2,3));
         list.add(new Plant(2L, "Cualiflower", "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Bright_red_tomato_and_cross_section02.jpg/640px-Bright_red_tomato_and_cross_section02.jpg",
-                false, "Brassica oleracea var. botrytis", "Brassica oleracea",
+                "Brassica oleracea var. botrytis", "Brassica oleracea",
                 "information about the land type", 5.5F, "information about distance between plants",
                 "40-60 cm", "information about ideal depth", "0.5-1.5 m",
                 "Information about the weather conditions", "15°-18° C",
                 "information about fertilization and fumigation", 2,1));
         list.add(new Plant(3L, "Potatoe", "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Bright_red_tomato_and_cross_section02.jpg/640px-Bright_red_tomato_and_cross_section02.jpg",
-                true, "Brassica oleracea var. botrytis", "Brassica oleracea",
+                "Brassica oleracea var. botrytis", "Brassica oleracea",
                 "information about the land type", 5.5F, "information about distance between plants",
                 "40-60 cm", "information about ideal depth", "0.5-1.5 m",
                 "Information about the weather conditions", "15°-18° C",
                 "information about fertilization and fumigation", 2,1));
         list.add(new Plant(4L, "Lemon", "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Bright_red_tomato_and_cross_section02.jpg/640px-Bright_red_tomato_and_cross_section02.jpg",
-                false, "Brassica oleracea var. botrytis", "Brassica oleracea",
+                "Brassica oleracea var. botrytis", "Brassica oleracea",
                 "information about the land type", 4F, "information about distance between plants",
                 "40-60 cm", "information about ideal depth", "0.5-1.5 m",
                 "Information about the weather conditions", "15°-18° C",
@@ -92,7 +93,7 @@ public class PlantServiceImplTest {
     public void getById() throws Exception{
         Long id = 1L;
         Plant plant = new Plant(1L, "Lemon", "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Bright_red_tomato_and_cross_section02.jpg/640px-Bright_red_tomato_and_cross_section02.jpg",
-                false, "Brassica oleracea var. botrytis", "Brassica oleracea",
+               "Brassica oleracea var. botrytis", "Brassica oleracea",
                 "information about the land type", 4F, "information about distance between plants",
                 "40-60 cm", "information about ideal depth", "0.5-1.5 m",
                 "Information about the weather conditions", "15°-18° C",
@@ -109,7 +110,7 @@ public class PlantServiceImplTest {
     public void findByName() throws Exception{
         String name = "Lemon";
         Plant plant = new Plant(1L, "Lemon", "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Bright_red_tomato_and_cross_section02.jpg/640px-Bright_red_tomato_and_cross_section02.jpg",
-                false, "Brassica oleracea var. botrytis", "Brassica oleracea",
+                "Brassica oleracea var. botrytis", "Brassica oleracea",
                 "information about the land type", 4F, "information about distance between plants",
                 "40-60 cm", "information about ideal depth", "0.5-1.5 m",
                 "Information about the weather conditions", "15°-18° C",

@@ -1,7 +1,9 @@
 package com.agripure.agripurebackend.controller;
 
 import com.agripure.agripurebackend.entities.Plant;
+import com.agripure.agripurebackend.entities.UsersPlants;
 import com.agripure.agripurebackend.service.IPlantService;
+import com.agripure.agripurebackend.service.IUsersPlantsService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -21,9 +23,11 @@ import java.util.Optional;
 public class PlantController {
 
     private final IPlantService plantService;
+    private final IUsersPlantsService usersPlantsService;
 
-    public PlantController(IPlantService plantService) {
+    public PlantController(IPlantService plantService, IUsersPlantsService usersPlantsService) {
         this.plantService = plantService;
+        this.usersPlantsService = usersPlantsService;
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
@@ -74,6 +78,28 @@ public class PlantController {
         }
     }
 
+    @GetMapping(value = "/userid/{userId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Plant>> findPlantsByUserId(@PathVariable("userId") Long userId){
+        try {
+            List<Plant> plants= plantService.ListByUserId(userId);
+            if(plants!= null)
+                return new ResponseEntity<>(plants, HttpStatus.OK);
+            else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PostMapping(value = "/users",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<UsersPlants> insertPlantOnUser(@Valid @RequestBody UsersPlants usersPlants){
+        try {
+            UsersPlants usersPlantsNew = usersPlantsService.save(usersPlants);
+            return ResponseEntity.status(HttpStatus.CREATED).body(usersPlantsNew);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Insert Plant", notes = "Method for insert new plant")
     @ApiResponses({
@@ -111,6 +137,16 @@ public class PlantController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    /*@DeleteMapping(value = "/{plantId}/user/{userId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<UsersPlants> deleteUserPlant(@PathVariable("plantId") Long plantId, @PathVariable("userId") Long userId){
+        try {
+                usersPlantsService.deleteByIds(userId, plantId);
+                return new ResponseEntity<>(HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }*/
 
     @DeleteMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Delete Plant by Id", notes = "Method for delete plant")
